@@ -1,0 +1,18 @@
+# Local LaTeX and editor output
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Local build and tooling directories
+build/
+dist/
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
