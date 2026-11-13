@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DriveFoundry and Xiaomi-Drive-o1: a co-evolving data and model engine for efficient closed-loop iteration in autonomous driving.">
+  <meta name="theme-color" content="#171717">
+  <title>DriveFoundry | Xiaomi EV</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="DriveFoundry home">
+        <span class="brand-mark" aria-hidden="true">X</span>
+        <span class="brand-copy"><strong>XIAOMI EV</strong><small>DRIVEFOUNDRY / RESEARCH</small></span>
+      </a>
+      <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span class="menu-icon" aria-hidden="true"></span><span class="visually-hidden">Open navigation</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-nav>
+        <a href="#overview">Overview</a>
+        <a href="#data">Data engine</a>
+        <a href="#model">Model engine</a>
+        <a href="#inference">Inference</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#field-test">Field test</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle icon-button" type="button" aria-label="Switch to dark theme" data-theme-toggle>
+          <span aria-hidden="true" data-theme-icon>&#9790;</span><span class="visually-hidden">Toggle color theme</span>
+        </button>
+        <a class="nav-repo" href="https://github.com/Xiaomi-EV/Xiaomi-Drive-o1" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">&nearr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> XIAOMI EV <span class="eyebrow-slash">/</span> RESEARCH</p>
+          <h1 id="hero-title">Drive<span>Foundry</span></h1>
+          <p class="hero-lede">Co-evolving data and model for efficient closed-loop iteration in autonomous driving.</p>
+          <p class="hero-note">A structured causal data engine and an adaptive model cognition engine turn critical physical experience into reusable decision capability.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#overview">Explore the framework <span aria-hidden="true">&rarr;</span></a>
+            <a class="button button-quiet button-paper" href="https://arxiv.org/pdf/2611.11532" target="_blank" rel="noreferrer" aria-label="Read the DriveFoundry paper on arXiv">
+              <svg class="arxiv-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.005.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg>
+              <span>Arxiv</span>
+            </a>
+            <a class="button button-quiet button-code" href="https://github.com/Xiaomi-EV/Xiaomi-Drive-o1" target="_blank" rel="noreferrer" aria-label="View Xiaomi-Drive-o1 source code on GitHub">
+              <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .6a11.4 11.4 0 0 0-3.61 22.21c.57.1.78-.25.78-.55v-2.14c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.73-1.54-2.54-.29-5.2-1.27-5.2-5.64 0-1.25.45-2.26 1.18-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.81 1.18 3.06 0 4.38-2.67 5.35-5.21 5.63.41.35.78 1.04.78 2.1v3.12c0 .3.21.66.79.55A11.4 11.4 0 0 0 12 .6Z"/></svg>
+              <span>View code</span>
+            </a>
+          </div>
+          <div class="hero-status"><span class="status-dot" aria-hidden="true"></span> Reported protocol values &middot; scope and direction are stated beside each result</div>
+        </div>
+        <figure class="hero-figure image-frame image-frame-dark" data-zoom="assets/mimo/teaser.webp" data-caption="DriveFoundry: a structured causal data loop coupled to an adaptive model cognition loop.">
+          <img src="assets/mimo/teaser.webp" width="1900" height="1235" alt="DriveFoundry overview showing a data engine and model engine connected by closed-loop iteration." fetchpriority="high">
+          <button class="zoom-button" type="button" aria-label="Enlarge DriveFoundry overview" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption>From critical experience to structured records, shared latent reasoning and reusable behavior.</figcaption>
+        </figure>
+      </div>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <div class="stat-shell" aria-label="Project highlights">
+        <div class="stat-group stat-group-left">
+          <div class="stat stat-concept"><strong>Reasoning CoC</strong><span>Generates &amp; curates scenarios and experience</span></div>
+          <div class="stat stat-concept"><strong>Shared model</strong><span>Shared backbone &amp; latent representation</span></div>
+        </div>
+        <div class="stat-group stat-group-right">
+          <div class="stat stat-metric"><strong>28%</strong><span>Adaptive token consumption</span></div>
+          <div class="stat stat-metric"><strong>10 Hz</strong><span>Real-vehicle running</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="overview" aria-labelledby="overview-title">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div><p class="kicker">01 / OVERVIEW</p><h2 id="overview-title">Critical experience becomes a learning loop.</h2></div>
+          <p class="section-intro">DriveFoundry couples what the system learns from a scene with how the model decides what to compute next. A shared scene&ndash;candidate record keeps evidence, behavior and consequence aligned across data production, training and inference.</p>
+        </div>
+        <div class="loop-grid">
+          <article class="loop-panel loop-panel-orange">
+            <p class="panel-index">DATA ENGINE</p>
+            <h3>Structured causal supervision</h3>
+            <p>Failure mining finds rare interactions. VLM-assisted annotation proposes World&ndash;Policy&ndash;Value records, experts correct the decision-critical relations, and quality gates publish reusable supervision.</p>
+            <a href="#data" class="text-link">Follow the data loop <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="loop-panel loop-panel-dark">
+            <p class="panel-index">MODEL ENGINE</p>
+            <h3>Value-guided cognition</h3>
+            <p><strong>Xiaomi-Drive-o1</strong> shares one vision&ndash;language backbone across Perception, Causation, Action, World and Value. A value-of-computation head spends extra reasoning only when it can improve the decision.</p>
+            <a href="#inference" class="text-link">See adaptive inference <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </div>
+
+        <div class="flow-block">
+          <div class="flow-heading"><p class="kicker">THE CLOSED-LOOP FLOW</p><p>Offline refinement and online allocation share the same candidate identity.</p></div>
+          <div class="flowchart" role="img" aria-label="Flow from failure mining to scene-candidate records, model training, adaptive inference and evaluation, with feedback returning to the record.">
+            <div class="flow-step"><span>01</span><strong>Mine failures</strong><small>critical scenes and near misses</small></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-step"><span>02</span><strong>Build records</strong><small>World &middot; Policy &middot; Value</small></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-step"><span>03</span><strong>Train jointly</strong><small>pretrain &middot; SFT &middot; post-train</small></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-step"><span>04</span><strong>Allocate compute</strong><small>Action &rarr; Value &rarr; VOC</small></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-step"><span>05</span><strong>Evaluate and revise</strong><small>closed-loop evidence feeds back</small></div>
+          </div>
+        </div>
+
+        <div class="principles-grid">
+          <div><span class="principle-number">01</span><h3>Candidate consistency</h3><p>Action, predicted consequence and value all refer to the same candidate behavior.</p></div>
+          <div><span class="principle-number">02</span><h3>Decision-relevant detail</h3><p>Partial records focus annotation effort on factors that change a feasible choice.</p></div>
+          <div><span class="principle-number">03</span><h3>Compute with purpose</h3><p>Extra blocks add evidence, causal constraints or future-world verification only when needed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-orange" id="data" aria-labelledby="data-title">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div><p class="kicker">02 / DATA ENGINE</p><h2 id="data-title">World, Policy and Value in one scene&ndash;candidate record.</h2></div>
+          <p class="section-intro">The record keeps the factual scene, the candidate behavior and the consequence assessment together. Multiple candidates can share one scene, making counterfactual comparison explicit instead of post-hoc.</p>
+        </div>
+        <div class="data-pillars">
+          <div class="data-pillar"><span class="pillar-code">W</span><h3>World</h3><p>Evidence, object states, event segments and interaction relations with valid time and provenance.</p></div>
+          <div class="data-pillar"><span class="pillar-code">P</span><h3>Policy</h3><p>Semantic intent, lateral and longitudinal decisions, and their continuous motion realization.</p></div>
+          <div class="data-pillar"><span class="pillar-code">V</span><h3>Value</h3><p>Safety, comfort, efficiency, compliance and navigation following, plus observed and counterfactual outcomes.</p></div>
+        </div>
+        <div class="data-figure-pair">
+          <figure class="wide-figure image-frame" data-zoom="assets/mimo/data-engine.webp" data-caption="Structured annotation hierarchy and scene-candidate records.">
+            <img src="assets/mimo/data-engine.webp" width="1063" height="553" loading="lazy" alt="Diagram of the annotation hierarchy, shared scene, executed and alternative candidates, and derived task data.">
+            <button class="zoom-button" type="button" aria-label="Enlarge data engine diagram" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Structured labels are a common factual source for Perception, CoC, planning, World prediction and Value.</figcaption>
+          </figure>
+          <figure class="wide-figure image-frame annotation-figure" data-zoom="assets/mimo/annotation.webp" data-caption="Quality-gated annotation production and versioned scene-candidate records.">
+            <img src="assets/mimo/annotation.webp" width="1063" height="434" loading="lazy" alt="Annotation production pipeline from driving clips and autolabeling through CoC review, candidate evaluation and versioned scene-candidate records.">
+            <button class="zoom-button" type="button" aria-label="Enlarge annotation production pipeline" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Automatic labels scale the pipeline; human review concentrates on causal, value and consistency checks.</figcaption>
+          </figure>
+        </div>
+        <figure class="wide-figure image-frame annotation-method-figure data-figure5" data-zoom="assets/mimo/overview-coc-autolabel-pipeline.png" data-caption="Figure 5 / Annotation pipeline: meta-actions, keyframes, decision timelines and Chain-of-Causation.">
+          <img src="assets/mimo/overview-coc-autolabel-pipeline.png" width="3875" height="2983" loading="lazy" alt="Figure 5 annotation pipeline showing atomic meta-actions, keyframe object annotations, decision timelines and Chain-of-Causation generation.">
+          <button class="zoom-button" type="button" aria-label="Enlarge Figure 5 annotation pipeline" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption><strong>Figure 5 / Annotation pipeline.</strong> Atomic meta-actions become keyframes, factor-decision timelines and natural-language CoC records.</figcaption>
+        </figure>
+        <div class="data-detail-grid">
+          <article class="detail-card"><span class="card-index">01 / CAUSAL RECORD</span><h3>Factor &rarr; decision</h3><p>Each causal pair binds a critical factor to a decision instance, with MOTIVE or CONSTRAINT role, evidence and valid time. This lets the model distinguish why an action is required from what merely limits it.</p></article>
+          <article class="detail-card"><span class="card-index">02 / QUALITY LOOP</span><h3>Propose &rarr; correct &rarr; learn</h3><p>VLM proposals are checked for factual grounding, temporal alignment and candidate consistency. Verified failures revise both the published record and the annotation model used for the next batch.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="model" aria-labelledby="model-title">
+      <div class="section-shell">
+        <div class="section-heading section-heading-dark">
+          <div><p class="kicker">03 / MODEL ENGINE</p><h2 id="model-title">One backbone. Five interfaces. Shared latent state.</h2></div>
+          <p class="section-intro">Block-wise latent refill passes realized upstream outputs into downstream task blocks. The same candidate identity is preserved across planning, future prediction and evaluation.</p>
+        </div>
+        <figure class="wide-figure image-frame image-frame-dark" data-zoom="assets/mimo/architecture.webp" data-caption="Xiaomi-Drive-o1 shared backbone and task interfaces.">
+          <img src="assets/mimo/architecture.webp" width="1900" height="767" loading="lazy" alt="Unified Xiaomi-Drive-o1 architecture with a shared vision-language backbone and Perception, Causation, Action, World and Value interfaces.">
+          <button class="zoom-button" type="button" aria-label="Enlarge shared model architecture" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption>Shared parameters transfer knowledge across tasks; block-wise refill keeps intermediate outputs aligned.</figcaption>
+        </figure>
+        <div class="task-grid">
+          <article class="task-item"><span class="task-code">P</span><div><h3>Perception</h3><p>Objects, geometry, detection, segmentation and depth from the current scene.</p></div></article>
+          <article class="task-item"><span class="task-code">C</span><div><h3>Causation</h3><p>Critical factors, roles and factor&ndash;decision relations grounded in evidence.</p></div></article>
+          <article class="task-item"><span class="task-code">A</span><div><h3>Action</h3><p>Semantic decisions and a continuous 6.4 s trajectory at 10 Hz.</p></div></article>
+          <article class="task-item"><span class="task-code">W</span><div><h3>World</h3><p>Candidate-conditioned future visual tokens for consequence checking.</p></div></article>
+          <article class="task-item"><span class="task-code">V</span><div><h3>Value</h3><p>Safety, comfort, efficiency, compliance and navigation value, plus VOC.</p></div></article>
+        </div>
+        <figure class="wide-figure image-frame image-frame-dark shared-training-figure" data-zoom="assets/mimo/figure7-revised.webp" data-caption="Shared training: fast inference and gradient alignment across driving-task interfaces.">
+          <img src="assets/mimo/figure7-revised.webp" width="2400" height="1155" loading="lazy" alt="DriveFoundry Figure 7 showing task inputs, Perception, Causation, Action, World and Value interfaces with shared latents and decoders.">
+          <button class="zoom-button" type="button" aria-label="Enlarge shared training figure" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption>Shared training: joint supervision aligns gradients while the fast path keeps inference efficient.</figcaption>
+        </figure>
+        <div class="model-notes"><div><strong>Latent refill</strong><span>Realized upstream task tokens are refilled into downstream blocks instead of being decoded as disconnected text.</span></div><div><strong>Candidate identity</strong><span>World predicts the future conditioned on the same candidate that Value scores.</span></div><div><strong>Shared training</strong><span>Joint supervision aligns gradients while retaining task-specific outputs and budgets.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="inference" aria-labelledby="inference-title">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div><p class="kicker">04 / ADAPTIVE INFERENCE</p><h2 id="inference-title">Reason only as far as the decision requires.</h2></div>
+          <p class="section-intro">Inference starts with a fast Action&ndash;Value path. A value-of-computation (VOC) head estimates whether an additional task or latent budget is worth its incremental compute, latency and memory cost.</p>
+        </div>
+        <div class="split-feature">
+          <figure class="wide-figure image-frame scheduler-figure" data-zoom="assets/mimo/scheduler.webp" data-caption="Dynamic inference scheduling with a fast path and value-guided escalation.">
+            <img src="assets/mimo/scheduler.webp" width="1900" height="942" loading="lazy" alt="Dynamic inference scheduler showing Action to Value fast path, optional Perception and Causation, and World verification with safety fallback.">
+            <button class="zoom-button" type="button" aria-label="Enlarge adaptive inference diagram" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>VOC chooses an executable route under resource budgets; safety fallback remains available.</figcaption>
+          </figure>
+          <div class="route-list">
+            <article class="route route-fast"><span class="route-label">FAST PATH / SYSTEM 1</span><h3>Action <b aria-hidden="true">&rarr;</b> Value</h3><p>Generate and score a candidate from the shared driving knowledge already encoded in the backbone.</p></article>
+            <article class="route route-mid"><span class="route-label">TARGETED ESCALATION</span><h3>Perception <b aria-hidden="true">&rarr;</b> CoC <b aria-hidden="true">&rarr;</b> Action</h3><p>Refill scene evidence and causal constraints before regenerating the candidate.</p></article>
+            <article class="route route-full"><span class="route-label">FULL VERIFICATION</span><h3>... <b aria-hidden="true">&rarr;</b> World <b aria-hidden="true">&rarr;</b> Value</h3><p>Predict candidate-conditioned future visual evidence, then rank admissible trajectories with a fallback policy.</p></article>
+          </div>
+        </div>
+        <div class="budget-strip"><span>COMPUTE</span><span>LATENCY</span><span>MEMORY</span><span>RESERVED CONTROL TIME</span><strong>VOC selects the next useful block, not the longest path.</strong></div>
+      </div>
+    </section>
+
+    <section class="section section-paper training-section" id="training" aria-labelledby="training-title">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div><p class="kicker">05 / TRAINING</p><h2 id="training-title">A common interface from language to behavior.</h2></div>
+          <p class="section-intro">Training moves from broad driving knowledge to structured task supervision and then to feedback that balances behavior quality with computation. Task supervision remains available during post-training.</p>
+        </div>
+        <figure class="wide-figure image-frame training-figure" data-zoom="assets/mimo/training.webp" data-caption="Three-stage training pipeline for Xiaomi-Drive-o1.">
+          <img src="assets/mimo/training.webp" width="1900" height="819" loading="lazy" alt="Three-stage training pipeline from pretraining through structured supervised fine-tuning to reinforcement and compute-aware post-training.">
+          <button class="zoom-button" type="button" aria-label="Enlarge training pipeline" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption>Pretraining establishes the interface; mid-training grounds the tasks; post-training tunes behavior and compute allocation.</figcaption>
+        </figure>
+        <div class="stage-grid">
+          <article><span>STAGE 01</span><h3>Pretraining</h3><p>Language, discrete visual sequences and basic driving knowledge establish a shared representation.</p></article>
+          <article><span>STAGE 02</span><h3>Mid-training / SFT</h3><p>World, Causation, Perception, Action and Value receive structured supervision from the records.</p></article>
+          <article><span>STAGE 03</span><h3>Post-training</h3><p>Rule rewards and policy optimization improve Action; Value and VOC learn candidate quality and computation benefit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark results-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-shell">
+        <div class="section-heading section-heading-dark">
+          <div><p class="kicker">06 / REPORTED EVIDENCE</p><h2 id="evidence-title">Promising signals, clearly scoped.</h2></div>
+          <p class="section-intro">Values below are transcribed from the reported study. Benchmark split, horizon, direction and model size are stated beside each result; they are not release claims.</p>
+        </div>
+        <div class="evidence-note"><span class="note-mark" aria-hidden="true">!</span><p><strong>Evidence status.</strong> PhysicalAI open-loop results use the reported NV and high-quality splits; closed-loop results use 1,607 AlpaSim scenarios. Some release artifacts and final protocols may change.</p></div>
+        <div class="metric-row">
+          <div class="metric"><strong>0.29 m</strong><span>NV split ADE@1 at 3 s</span><small>Xiaomi-Drive-o1-9B open-loop</small></div>
+          <div class="metric"><strong>29.7%</strong><span>close-encounter rate</span><small>9B, 1,607 AlpaSim scenarios</small></div>
+          <div class="metric"><strong>84.2%</strong><span>CoC human pass rate</span><small>298 critical cases</small></div>
+          <div class="metric"><strong>28%</strong><span>adaptive token consumption</span><small>0.8B dynamic ablation</small></div>
+        </div>
+        <div class="results-tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Reported evidence views">
+            <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-open" id="tab-open" data-tab="open">Open-loop</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-dynamic" id="tab-dynamic" data-tab="dynamic">Dynamic reasoning</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-causal" id="tab-causal" data-tab="causal">Causal disambiguation</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-closed" id="tab-closed" data-tab="closed">Closed-loop</button>
+          </div>
+          <div class="tab-panels">
+            <div class="tab-panel is-active" id="panel-open" role="tabpanel" aria-labelledby="tab-open" data-panel="open">
+              <div class="table-wrap" role="region" aria-label="Open-loop PhysicalAI results" tabindex="0"><table><caption class="visually-hidden">Open-loop PhysicalAI results from the current manuscript</caption><thead><tr><th>Model / split</th><th>minADE@6 3 s</th><th>minADE@6 5 s</th><th>ADE@1 3 s</th><th>ADE@1 5 s</th></tr></thead><tbody><tr><td>MiMo-9B / NV</td><td>0.18 m</td><td>0.56 m</td><td>0.29 m</td><td>0.71 m</td></tr><tr class="highlight-row"><td>MiMo-9B / high-quality</td><td>0.25 m</td><td>0.43 m</td><td>0.36 m</td><td>0.83 m</td></tr><tr><td>MiMo-0.8B / high-quality</td><td>0.30 m</td><td>0.80 m</td><td>0.53 m</td><td>1.47 m</td></tr></tbody></table></div>
+              <p class="panel-footnote">NV split: 644 examples. High-quality held-out test: 2,574 examples. Lower is better for all trajectory errors.</p>
+            </div>
+            <div class="tab-panel" id="panel-dynamic" role="tabpanel" aria-labelledby="tab-dynamic" data-panel="dynamic" hidden>
+              <div class="table-wrap" role="region" aria-label="Dynamic reasoning ablation" tabindex="0"><table><caption class="visually-hidden">Dynamic inference ablation within the 0.8B model</caption><thead><tr><th>Configuration</th><th>Mode</th><th>Tokens</th><th>minADE@6 3 s</th><th>minADE@6 5 s</th><th>Encounter</th><th>Off-road</th><th>Score</th></tr></thead><tbody><tr><td>System 1</td><td>fast</td><td>13%</td><td>0.66</td><td>1.93</td><td>43.6%</td><td>23.9%</td><td>0.10</td></tr><tr><td>Joint training</td><td>System 1</td><td>13%</td><td>0.35</td><td>0.89</td><td>38.8%</td><td>19.7%</td><td>0.18</td></tr><tr><td>Joint training</td><td>Full</td><td>100%</td><td>0.29</td><td>0.83</td><td>33.0%</td><td>12.5%</td><td>0.30</td></tr><tr class="highlight-row"><td>Joint training</td><td>Adaptive</td><td>28%</td><td>0.30</td><td>0.80</td><td>33.1%</td><td>12.7%</td><td>0.28</td></tr></tbody></table></div>
+              <p class="panel-footnote">Adaptive inference approaches full reasoning while using 28% of its measured token consumption.</p>
+            </div>
+            <div class="tab-panel" id="panel-causal" role="tabpanel" aria-labelledby="tab-causal" data-panel="causal" hidden>
+              <div class="bar-chart" aria-label="Causal disambiguation comparison">
+                <div class="bar-row"><span>Scenario A / P + A</span><div class="bar-track"><i style="--value:68.5%"></i></div><strong>68.5%</strong></div>
+                <div class="bar-row bar-row-ours"><span>Scenario A / P + CoC + A</span><div class="bar-track"><i style="--value:89%"></i></div><strong>89.0%</strong></div>
+                <div class="bar-row"><span>Scenario B / P + A</span><div class="bar-track"><i style="--value:57%"></i></div><strong>57.0%</strong></div>
+                <div class="bar-row bar-row-ours"><span>Scenario B / P + CoC + A</span><div class="bar-track"><i style="--value:82.5%"></i></div><strong>82.5%</strong></div>
+              </div>
+              <p class="panel-footnote">Decision F1 on two 200-clip adversarial scenarios. Clip pass rate also rises from 60.5% to 84.5% (A) and 45.5% to 73.5% (B).</p>
+            </div>
+            <div class="tab-panel" id="panel-closed" role="tabpanel" aria-labelledby="tab-closed" data-panel="closed" hidden>
+              <div class="table-wrap" role="region" aria-label="Closed-loop AlpaSim comparison" tabindex="0"><table><caption class="visually-hidden">Closed-loop AlpaSim comparison</caption><thead><tr><th>Model</th><th>Close encounter</th><th>At-fault</th><th>Off-road</th><th>Progress</th><th>Score all / fault</th></tr></thead><tbody><tr><td>Alpamayo 1.5</td><td>40.5%</td><td>5.6%</td><td>19.8%</td><td>64.2%</td><td>0.32 / 0.51</td></tr><tr><td>Alpamayo 2 Super</td><td>31.5%</td><td>5.7%</td><td>10.2%</td><td>67.2%</td><td>0.44 / 0.75</td></tr><tr class="highlight-row"><td>MiMo-9B</td><td>29.7%</td><td>5.4%</td><td>9.8%</td><td>64.6%</td><td>0.38 / 0.68</td></tr></tbody></table></div>
+              <p class="panel-footnote">Lower is better for encounter and off-road; higher is better for progress and AlpaSim score. AR2 retains the highest progress and score.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ablation-callout"><span class="callout-number">11.40%</span><p>Collision rate after cumulatively adding Perception, CoC, Value and World, down from 17.05% for the Action-only baseline on the high-quality test.</p></div>
+        <figure class="wide-figure image-frame image-frame-dark evidence-visual ablation-figure" data-zoom="assets/mimo/ablation-cropped.webp" data-caption="Meta-action recall ablation for the 0.8B model.">
+          <img src="assets/mimo/ablation-cropped.webp" width="1874" height="578" loading="lazy" alt="Bar chart of lateral and longitudinal meta-action recall for planning only, perception plus planning, and perception plus causal reasoning plus planning.">
+          <button class="zoom-button" type="button" aria-label="Enlarge meta-action ablation chart" data-zoom-trigger><span aria-hidden="true">+</span></button>
+          <figcaption>Meta-action recall improves most on sharp turns and strong longitudinal maneuvers after causal supervision.</figcaption>
+        </figure>
+        <div class="coc-carousel evidence-visual" data-carousel aria-label="Figure 9 CoC comparison">
+          <div class="coc-carousel-heading">
+            <p class="coc-carousel-title">FIGURE 9 / COC COMPARISON</p>
+            <div class="carousel-controls">
+              <button class="carousel-button" type="button" aria-label="Previous CoC comparison" data-carousel-prev>&larr;</button>
+              <button class="carousel-button" type="button" aria-label="Next CoC comparison" data-carousel-next>&rarr;</button>
+            </div>
+          </div>
+          <div class="coc-track" data-carousel-track>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-01.jpg" data-caption="Figure 9 case 01: AR2-CoC versus Our-CoC at a stop-controlled residential intersection.">
+              <img src="assets/mimo/coc-ar-01.jpg" width="972" height="832" loading="lazy" alt="Figure 9 case 01 comparing AR2-CoC and Our-CoC at a residential stop-controlled intersection.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 01" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 01 / stop-controlled intersection</figcaption>
+            </figure>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-02.jpg" data-caption="Figure 9 case 02: AR2-CoC versus Our-CoC at an overpass intersection.">
+              <img src="assets/mimo/coc-ar-02.jpg" width="972" height="832" loading="lazy" alt="Figure 9 case 02 comparing AR2-CoC and Our-CoC at an overpass intersection.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 02" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 02 / overpass crossing</figcaption>
+            </figure>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-03.jpg" data-caption="Figure 9 case 03: AR2-CoC versus Our-CoC during a protected left-turn sequence.">
+              <img src="assets/mimo/coc-ar-03.jpg" width="972" height="840" loading="lazy" alt="Figure 9 case 03 comparing AR2-CoC and Our-CoC during a protected left-turn sequence.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 03" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 03 / protected left turn</figcaption>
+            </figure>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-04.jpg" data-caption="Figure 9 case 04: AR2-CoC versus Our-CoC beside construction barriers and parked vehicles.">
+              <img src="assets/mimo/coc-ar-04.jpg" width="972" height="840" loading="lazy" alt="Figure 9 case 04 comparing AR2-CoC and Our-CoC beside construction barriers and parked vehicles.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 04" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 04 / constrained urban lane</figcaption>
+            </figure>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-05.jpg" data-caption="Figure 9 case 05: AR2-CoC versus Our-CoC near a pedestrian crossing and construction equipment.">
+              <img src="assets/mimo/coc-ar-05.jpg" width="972" height="872" loading="lazy" alt="Figure 9 case 05 comparing AR2-CoC and Our-CoC near a pedestrian crossing and construction equipment.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 05" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 05 / pedestrian crossing</figcaption>
+            </figure>
+            <figure class="coc-card image-frame image-frame-dark" data-carousel-card data-zoom="assets/mimo/coc-ar-06.jpg" data-caption="Figure 9 case 06: AR2-CoC versus Our-CoC on a multi-lane boulevard.">
+              <img src="assets/mimo/coc-ar-06.jpg" width="972" height="872" loading="lazy" alt="Figure 9 case 06 comparing AR2-CoC and Our-CoC on a multi-lane boulevard.">
+              <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 comparison case 06" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 06 / boulevard lane change</figcaption>
+            </figure>
+          </div>
+          <p class="coc-carousel-note">AR2-CoC describes a local maneuver; Our-CoC connects scene evidence, constraints and the resulting decision.</p>
+        </div>
+        <div class="figure9-pair" aria-label="Representative Figure 9 annotated cases">
+          <figure class="case-figure image-frame image-frame-dark" data-zoom="assets/mimo/appendix-31.png" data-caption="Figure 9 case study: a sign-dense scene with key factors, CoC, decisions and counterfactual questions.">
+            <img src="assets/mimo/appendix-31.png" width="1920" height="1714" loading="lazy" alt="Figure 9 representative annotated case with a delivery rider, causal explanation, lane-change decision and counterfactual questions.">
+            <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 case one" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Figure 9 / sign-dense case A</figcaption>
+          </figure>
+          <figure class="case-figure image-frame image-frame-dark" data-zoom="assets/mimo/figure9-case-32.png" data-caption="Figure 9 case study: a second sign-dense scene with structured evidence and action labels.">
+            <img src="assets/mimo/figure9-case-32.png" width="1920" height="1714" loading="lazy" alt="Figure 9 second annotated case with structured evidence, Chain-of-Causation, driving decisions and counterfactual questions.">
+            <button class="zoom-button" type="button" aria-label="Enlarge Figure 9 case two" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Figure 9 / sign-dense case B</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="field-test" aria-labelledby="field-title">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div><p class="kicker">07 / FIELD TEST</p><h2 id="field-title">From benchmark records to the road.</h2></div>
+          <p class="section-intro">The tested vehicle configuration ran the inference pipeline at 10 Hz on an NVIDIA RTX 4090. The paper reports eight real-vehicle Chain-of-Causation visualizations, used here as qualitative evidence.</p>
+        </div>
+        <div class="field-grid">
+          <figure class="case-figure image-frame" data-zoom="assets/mimo/coc-a.webp" data-caption="Real-vehicle CoC example: work zone blocks the direct path.">
+            <img src="assets/mimo/coc-a.webp" width="837" height="728" loading="lazy" alt="Real-vehicle work-zone scene with a Chain-of-Causation explanation and a nudge-and-speed-adaptation decision.">
+            <button class="zoom-button" type="button" aria-label="Enlarge real-vehicle example one" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Road test / work-zone detour</figcaption>
+          </figure>
+          <figure class="case-figure image-frame" data-zoom="assets/mimo/coc-b.webp" data-caption="Real-vehicle CoC example: crossing rider near a right-turn path.">
+            <img src="assets/mimo/coc-b.webp" width="837" height="728" loading="lazy" alt="Real-vehicle intersection scene with a Chain-of-Causation explanation for yielding to a crossing rider before a right turn.">
+            <button class="zoom-button" type="button" aria-label="Enlarge real-vehicle example two" data-zoom-trigger><span aria-hidden="true">+</span></button>
+            <figcaption>Road test / crossing-rider yield</figcaption>
+          </figure>
+        </div>
+        <div class="feedback-strip"><span class="feedback-icon" aria-hidden="true">+</span><p>Qualitative cases are not a substitute for a frozen deployment protocol; they show how evidence, causal attribution and action remain connected in the tested loop.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-dark appendix-section" id="appendix" aria-labelledby="appendix-title">
+      <div class="section-shell">
+        <div class="section-heading section-heading-dark">
+          <div><p class="kicker">08 / QUALITATIVE APPENDIX</p><h2 id="appendix-title">Annotated cases, read as a sequence.</h2></div>
+          <p class="section-intro">The appendix cases expose the evidence that sits behind a decision: key factors, Chain-of-Causation, lateral and longitudinal actions, and counterfactual questions. Slide through representative records without losing their full annotations.</p>
+        </div>
+        <div class="appendix-carousel" data-carousel aria-label="Annotated appendix cases">
+          <div class="carousel-toolbar">
+            <span class="carousel-label">SELECTED CASES / 60 QUALITATIVE RECORDS</span>
+            <div class="carousel-controls">
+              <button class="carousel-button" type="button" aria-label="Previous annotated case" data-carousel-prev>&larr;</button>
+              <button class="carousel-button" type="button" aria-label="Next annotated case" data-carousel-next>&rarr;</button>
+            </div>
+          </div>
+          <div class="appendix-track" data-carousel-track>
+            <figure class="appendix-card image-frame image-frame-dark" data-zoom="assets/mimo/appendix-01.png" data-caption="Appendix case 01: yield to crossing pedestrians, with key factors, CoC, action and counterfactual questions.">
+              <img src="assets/mimo/appendix-01.png" width="1920" height="1757" loading="lazy" alt="Annotated case 01 showing pedestrians, key factors, Chain-of-Causation, yield decision and counterfactual questions.">
+              <button class="zoom-button" type="button" aria-label="Enlarge appendix case 01" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 01 / crossing pedestrians</figcaption>
+            </figure>
+            <figure class="appendix-card image-frame image-frame-dark" data-zoom="assets/mimo/appendix-05.png" data-caption="Appendix case 05: roadwork and parking constraints, with a causal decision record.">
+              <img src="assets/mimo/appendix-05.png" width="1920" height="1757" loading="lazy" alt="Annotated case 05 showing roadwork, parked vehicles, causal factors, action and counterfactual questions.">
+              <button class="zoom-button" type="button" aria-label="Enlarge appendix case 05" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 05 / roadwork clearance</figcaption>
+            </figure>
+            <figure class="appendix-card image-frame image-frame-dark" data-zoom="assets/mimo/appendix-14.png" data-caption="Appendix case 14: a constrained maneuver with evidence, decision and counterfactual alternatives.">
+              <img src="assets/mimo/appendix-14.png" width="1920" height="1757" loading="lazy" alt="Annotated case 14 showing a constrained driving maneuver with key factors, CoC, action and counterfactual questions.">
+              <button class="zoom-button" type="button" aria-label="Enlarge appendix case 14" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 14 / constrained maneuver</figcaption>
+            </figure>
+            <figure class="appendix-card image-frame image-frame-dark" data-zoom="assets/mimo/appendix-31.png" data-caption="Appendix case 31: change left while following a delivery rider.">
+              <img src="assets/mimo/appendix-31.png" width="1920" height="1714" loading="lazy" alt="Annotated case 31 showing a delivery rider, lane-change constraint, following decision and counterfactual questions.">
+              <button class="zoom-button" type="button" aria-label="Enlarge appendix case 31" data-zoom-trigger><span aria-hidden="true">+</span></button>
+              <figcaption>Case 31 / delivery rider</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-resources" id="resources" aria-labelledby="resources-title">
+      <div class="section-shell resources-shell">
+        <div class="section-heading">
+          <div><p class="kicker">09 / RESOURCES</p><h2 id="resources-title">Methods, code and citation.</h2></div>
+          <p class="section-intro">This page records the method and reported evidence from the DriveFoundry; release artifacts and license terms are maintained in their canonical records.</p>
+        </div>
+        <div class="resource-grid">
+          <div class="citation-block">
+            <div class="resource-label">CITATION</div>
+            <p>DriveFoundry: Co-Evolving Data and Model for Efficient Closed-Loop Iteration in Autonomous Driving</p>
+            <pre class="bibtex-block"><code>@misc{drivefoundry,
+  title={DriveFoundry: Co-Evolving Data and Model for Efficient Closed-Loop Iteration in Autonomous Driving},
+  author={Xiaomi EV team},
+  year={2026},
+  eprint={2611.11532},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2611.11532},
+}</code></pre>
+            <button class="button button-dark" type="button" data-copy-citation>Copy BibTeX <span aria-hidden="true">&plus;</span></button><span class="copy-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="resource-links"><div class="resource-label">PROJECT LINKS</div><a href="https://github.com/Xiaomi-EV/Xiaomi-Drive-o1" target="_blank" rel="noreferrer">Xiaomi-Drive-o1 repository <span aria-hidden="true">&nearr;</span></a><a href="#overview">Framework overview <span aria-hidden="true">&rarr;</span></a><a href="#evidence">Reported evidence <span aria-hidden="true">&rarr;</span></a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-shell"><div><span class="footer-brand">XIAOMI EV / DRIVEFOUNDRY</span><p>Co-evolving data and model for closed-loop autonomous driving.</p></div><div class="footer-meta"><span>DriveFoundry</span><a href="#top">Back to top <span aria-hidden="true">&uarr;</span></a></div></div>
+  </footer>
+
+  <dialog class="lightbox" data-lightbox aria-label="Expanded figure">
+    <div class="lightbox-inner"><button class="lightbox-close icon-button" type="button" aria-label="Close enlarged figure" data-lightbox-close>&times;</button><img src="" alt="" data-lightbox-image><p data-lightbox-caption></p></div>
+  </dialog>
+</body>
+</html>
